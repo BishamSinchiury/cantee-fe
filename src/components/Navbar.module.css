@@ -1,0 +1,211 @@
+/* === Dark Lucid Glass Navbar Theme === */
+.navbar {
+  background: rgba(25, 25, 40, 0.7);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 50px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar:hover {
+  background: rgba(35, 35, 60, 0.8);
+  box-shadow: 0 6px 25px rgba(80, 80, 255, 0.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 32px;
+  color: #8e8aff;
+  text-shadow: 0 0 8px rgba(142, 138, 255, 0.4);
+}
+
+.brandName {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e0e8ff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(120, 120, 255, 0.3);
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  color: #b0b3c0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  position: relative;
+  background: transparent;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #8e8aff;
+  text-shadow: 0 0 6px rgba(142, 138, 255, 0.4);
+}
+
+.navLink.active {
+  background: rgba(120, 120, 255, 0.15);
+  color: #a8a4ff;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(140, 140, 255, 0.25) inset;
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #7d6bff, #4caf50);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 6px rgba(125, 107, 255, 0.5);
+}
+
+.addIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #8e8aff, #7d6bff);
+  color: white;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.navLink:hover .addIcon {
+  background: linear-gradient(135deg, #7d6bff, #4caf50);
+  transform: rotate(90deg);
+}
+
+.navLink.active .addIcon {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.username {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.logoutButton {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #f44336, #c62828);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(255, 80, 80, 0.2);
+}
+
+.logoutButton:hover {
+  background: linear-gradient(135deg, #ff5a4a, #d32f2f);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 80, 80, 0.35);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 12px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brandName {
+    font-size: 20px;
+  }
+
+  .navLinks {
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .navLink {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .navLink.active::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .userSection {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navLink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .userSection {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,406 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+  z-index: 10;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 36px;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.modalFooter {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 20px 24px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+  border-radius: 0 0 12px 12px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.required {
+  color: #f44336;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.2s;
+  flex: 1;
+  min-width: 180px;
+}
+
+.radioLabel:hover {
+  border-color: #4CAF50;
+  background: #f9fff9;
+}
+
+.radio {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #4CAF50;
+}
+
+.vegIndicator,
+.nonVegIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.unitsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.addUnitButton {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addUnitButton:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.unitsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.unitRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.unitInput {
+  flex: 2;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.priceInputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySymbol {
+  position: absolute;
+  left: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  pointer-events: none;
+}
+
+.priceInput {
+  width: 100%;
+  padding: 12px 16px 12px 32px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.unitInput:focus,
+.priceInput:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.removeButton {
+  width: 40px;
+  height: 40px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.removeButton:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+.fileInput {
+  width: 100%;
+  padding: 12px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.fileInput:hover {
+  border-color: #4CAF50;
+}
+
+.imagePreview {
+  margin-top: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.previewImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.checkboxLabel:hover {
+  border-color: #4CAF50;
+  background: #f9fff9;
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  accent-color: #4CAF50;
+}
+
+.submitButton,
+.cancelButton {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton {
+  background: #4CAF50;
+  color: white;
+}
+
+.submitButton:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.cancelButton {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.cancelButton:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cancelButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 0;
+  }
+
+  .modal {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .modalHeader {
+    border-radius: 0;
+  }
+
+  .modalFooter {
+    flex-direction: column;
+    border-radius: 0;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+  }
+
+  .radioLabel {
+    min-width: auto;
+  }
+
+  .unitRow {
+    flex-wrap: wrap;
+  }
+
+  .unitInput,
+  .priceInputWrapper {
+    flex: 1 1 100%;
+  }
+}

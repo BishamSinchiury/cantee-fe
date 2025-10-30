@@ -1,0 +1,332 @@
+:root {
+  /* Light Theme */
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --text-color: #ffffff;
+  --secondary-text: rgba(255, 255, 255, 0.8);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.3);
+  --button-bg: #ffffff;
+  --button-text: #667eea;
+  --success-bg: #4CAF50;
+  --error-bg: #f44336;
+  --success-border: #2e7d32;
+  --error-border: #c62828;
+}
+
+body.dark-theme {
+  /* Dark Theme */
+  --bg-gradient: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+  --text-color: #e0e0e0;
+  --secondary-text: rgba(224, 224, 224, 0.7);
+  --card-bg: rgba(0, 0, 0, 0.3);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --button-bg: #333;
+  --button-text: #8ab4f8;
+  --success-bg: #2e7d32;
+  --error-bg: #c62828;
+  --success-border: #1b5e20;
+  --error-border: #8e0000;
+}
+
+/* ---------------- Base Container ---------------- */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  position: relative;
+  transition: background 0.5s ease;
+}
+
+/* ---------------- Notification ---------------- */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification.success {
+  background-color: var(--success-bg);
+  color: white;
+  border-left: 4px solid var(--success-border);
+}
+
+.notification.error {
+  background-color: var(--error-bg);
+  color: white;
+  border-left: 4px solid var(--error-border);
+}
+
+.notificationIcon {
+  font-size: 20px;
+  font-weight: bold;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.notificationMessage {
+  flex: 1;
+}
+
+.notificationClose {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.notificationClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------- Header ---------------- */
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--text-color);
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 20px;
+  color: var(--secondary-text);
+}
+
+/* ---------------- Sections ---------------- */
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionHeader {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.sectionSubtitle {
+  margin: 0;
+  font-size: 16px;
+  color: var(--secondary-text);
+}
+
+/* ---------------- Grid & Cards ---------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.cardWrapper {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.unavailableOverlay {
+  position: relative;
+  opacity: 0.6;
+  filter: grayscale(50%);
+  transition: all 0.3s ease;
+}
+
+.unavailableOverlay:hover {
+  opacity: 0.8;
+  filter: grayscale(30%);
+}
+
+/* ---------------- Empty State ---------------- */
+.emptyState {
+  text-align: center;
+  padding: 80px 24px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 2px dashed var(--border-color);
+}
+
+.emptyText {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.emptySubtext {
+  margin: 0;
+  font-size: 16px;
+  color: var(--secondary-text);
+}
+
+/* ---------------- Loading / Error ---------------- */
+.loadingContainer,
+.errorContainer {
+  text-align: center;
+  padding: 80px 24px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.loadingContainer p,
+.errorContainer p {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* ---------------- Retry Button ---------------- */
+.retryButton {
+  padding: 12px 32px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.retryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.retryButton:active {
+  transform: translateY(0);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .notification {
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    min-width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .emptyState {
+    padding: 60px 16px;
+  }
+
+  .emptyText {
+    font-size: 20px;
+  }
+}
